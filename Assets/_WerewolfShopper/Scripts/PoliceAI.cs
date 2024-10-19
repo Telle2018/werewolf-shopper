@@ -63,11 +63,12 @@ public class PoliceAI : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
-    public void Kill()
+    public void Die()
     {
         spriteRend.color = Color.black;
         isAlive = false;
         StartCoroutine(Despawn());
+        MoneyParticles.Instance.Burst();
     }
 
     IEnumerator Despawn()
