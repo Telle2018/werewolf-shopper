@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using NUnit.Framework;
+using NUnit.Framework.Internal;
 using TMPro;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -10,23 +13,62 @@ using UnityEngine.UI;
 
 public class GroceryListManager : MonoBehaviour
 {
-    public GameObject groceryItem;
+    public static GroceryListManager Instance { get; private set; }
+    public GameObject groceryItemOnList;
     public GameObject parentObject;
-    
-    private List<GameObject> groceryList;
+    public GameObject groceryOrange;
+    public GameObject groceryTomato;
 
+    private List<GameObject> spawnedGroceryObjects;
+    private GameObject[] spawnPoints;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    private void Awake()
     {
-        //groceryList = new List<GameObject> {};
-        //GameObject grocery = AddGroceryItem(Color.cyan, "Cyan Items", "Cyan", 5);
-        //groceryList.Add(grocery);
-        //RemoveItemQuantity(grocery.name, 5);
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
-    GameObject AddGroceryItem(Color color, string text, string nam, int quantity)
+
+    void Start()
     {
-        GameObject newGroceryItem = Instantiate(groceryItem, parentObject.transform);
+        spawnedGroceryObjects = new List<GameObject> {};
+        spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+        foreach (GameObject spawn in spawnPoints)
+        {
+            int rng = UnityEngine.Random.Range(0, 2);
+            if (rng == 0)
+            {
+                GameObject newGroceryObject = Instantiate(groceryOrange, spawn.transform);
+                newGroceryObject.name = "Orange";
+                spawnedGroceryObjects.Add(newGroceryObject);
+            }
+            if (rng == 1)
+            {
+                GameObject newGroceryObject = Instantiate(groceryTomato, spawn.transform);
+                newGroceryObject.name = "Tomato";
+                spawnedGroceryObjects.Add(newGroceryObject);
+            }
+        }
+
+        if (spawnedGroceryObjects.Count > 0)
+        {
+            AddGroceryItem(groceryOrange.GetComponent<SpriteRenderer>().sprite,"Oranges", "OrangeList", spawnedGroceryObjects.Count(obj => obj.name == "Orange"));
+            AddGroceryItem(groceryTomato.GetComponent<SpriteRenderer>().sprite,"Tomatoes", "TomatoList", spawnedGroceryObjects.Count(obj => obj.name == "Tomato"));
+        }
+
+    }
+    public GameObject AddGroceryItem(Sprite sprite, string text, string name, int quantity)
+    {
+
+        GameObject newGroceryItem = Instantiate(groceryItemOnList, parentObject.transform);
 
         Transform childTextTransform = newGroceryItem.transform.Find("ObjectText");
 
@@ -38,7 +80,7 @@ public class GroceryListManager : MonoBehaviour
 
         Image grocerySprite = childSpriteTransform.GetComponent<Image>();
 
-        grocerySprite.color = color;
+        grocerySprite.sprite = sprite;
 
         newGroceryItem.name = name;
 
@@ -48,37 +90,42 @@ public class GroceryListManager : MonoBehaviour
 
         quantityText.text = quantity.ToString();
 
+        if (quantity <= 0)
+        {
+            Destroy(newGroceryItem);
+        }
+
         return newGroceryItem;
     }
 
-    void RemoveGroceryItem(string name)
+    public void UpdateItemQuantity(GameObject groceryObject , int amountRemoved)
     {
-        foreach (GameObject item in groceryList)
+        if (groceryObject.name == "Orange")
         {
-            if (item.name == name)
+            GameObject orangeItem = GameObject.Find("OrangeList");
+            Transform objIntText = orangeItem.transform.Find("QuantityText");
+            int objInt = int.Parse(objIntText.GetComponent<TMP_Text>().text);
+            objInt -= amountRemoved;
+            objIntText.GetComponent<TMP_Text>().text = objInt.ToString();
+
+            if (objInt <= 0)
             {
-                Destroy(item);
+                Destroy(orangeItem);
+            }
+        }
+        if (groceryObject.name == "Tomato")
+        {
+            GameObject TomatoItem = GameObject.Find("TomatoList");
+            Transform objIntText = TomatoItem.transform.Find("QuantityText");
+            int objInt = int.Parse(objIntText.GetComponent<TMP_Text>().text);
+            objInt -= amountRemoved;
+            objIntText.GetComponent<TMP_Text>().text = objInt.ToString();
+
+            if (objInt <= 0)
+            {
+                Destroy(TomatoItem);
             }
         }
     }
-
-    void RemoveItemQuantity(string itemName, int amountRemoved)
-    {
-        foreach (GameObject item in groceryList)
-        {
-            if (item.name == itemName)
-            {
-                Transform itemTransform = item.transform.Find("QuantityText");
-                TMP_Text itemQuantityText = itemTransform.GetComponent<TMP_Text>();
-                int itemQuantity = int.Parse(itemQuantityText.text);
-                itemQuantity -= amountRemoved;
-                itemQuantityText.text = itemQuantity.ToString();
-
-                if (itemQuantity <= 0)
-                {
-                    RemoveGroceryItem(item.name);
-                }
-            }
-    }
-    }
+    
 }
