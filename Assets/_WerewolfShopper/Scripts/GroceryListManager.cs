@@ -18,6 +18,7 @@ public class GroceryListManager : MonoBehaviour
     public GameObject parentObject;
     public GameObject groceryOrange;
     public GameObject groceryTomato;
+    public GameObject groceryMacAndCheese;
 
     private List<GameObject> spawnedGroceryObjects;
     private GameObject[] spawnPoints;
@@ -43,7 +44,7 @@ public class GroceryListManager : MonoBehaviour
         spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
         foreach (GameObject spawn in spawnPoints)
         {
-            int rng = UnityEngine.Random.Range(0, 2);
+            int rng = UnityEngine.Random.Range(0, 3);
             if (rng == 0)
             {
                 GameObject newGroceryObject = Instantiate(groceryOrange, spawn.transform);
@@ -56,12 +57,19 @@ public class GroceryListManager : MonoBehaviour
                 newGroceryObject.name = "Tomato";
                 spawnedGroceryObjects.Add(newGroceryObject);
             }
+            if (rng == 2)
+            {
+                GameObject newGroceryObject = Instantiate(groceryMacAndCheese, spawn.transform);
+                newGroceryObject.name = "MacAndCheese";
+                spawnedGroceryObjects.Add(newGroceryObject);
+            }
         }
 
         if (spawnedGroceryObjects.Count > 0)
         {
             AddGroceryItem(groceryOrange.GetComponent<SpriteRenderer>().sprite,"Oranges", "OrangeList", spawnedGroceryObjects.Count(obj => obj.name == "Orange"));
             AddGroceryItem(groceryTomato.GetComponent<SpriteRenderer>().sprite,"Tomatoes", "TomatoList", spawnedGroceryObjects.Count(obj => obj.name == "Tomato"));
+            AddGroceryItem(groceryMacAndCheese.GetComponent<SpriteRenderer>().sprite,"Mac and Cheeses", "MacAndCheeseList", spawnedGroceryObjects.Count(obj => obj.name == "MacAndCheese"));
         }
 
     }
@@ -126,6 +134,18 @@ public class GroceryListManager : MonoBehaviour
                 Destroy(TomatoItem);
             }
         }
+        if (groceryObject.name == "MacAndCheese")
+        {
+            GameObject MacAndCheeseItem = GameObject.Find("MacAndCheeseList");
+            Transform objIntText = MacAndCheeseItem.transform.Find("QuantityText");
+            int objInt = int.Parse(objIntText.GetComponent<TMP_Text>().text);
+            objInt -= amountRemoved;
+            objIntText.GetComponent<TMP_Text>().text = objInt.ToString();
+
+            if (objInt <= 0)
+            {
+                Destroy(MacAndCheeseItem);
+            }
+        }
+        }
     }
-    
-}
