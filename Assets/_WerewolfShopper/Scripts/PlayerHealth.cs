@@ -25,4 +25,5 @@ public class PlayerHealth : MonoBehaviour
             _isDead = true;
         }
     }
+
 }
