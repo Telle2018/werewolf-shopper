@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class PoliceAI : MonoBehaviour
 {
     [SerializeField] private float speed = 3f;                // Enemy movement speed
     [SerializeField] private float chaseRange = 10f;          // Range within which the enemy starts chasing the player
@@ -11,6 +11,7 @@ public class EnemyAI : MonoBehaviour
     private Transform player;               // Reference to the player's transform
     private float lastAttackTime = 0;       // Time of last attack
     private bool isAttacking = false;       // Is the enemy currently attacking?
+    private bool isAlive = true;
 
     // Start is called before the first frame update
     void Start()
