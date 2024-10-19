@@ -41,6 +41,11 @@ public class PoliceAI : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        print("do damage here");
+    }
+
     void ChasePlayer()
     {
         // Move towards the player
