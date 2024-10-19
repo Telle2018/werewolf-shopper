@@ -52,6 +52,9 @@ MonoBehaviour:
   attackRange: 5
   attackCooldown: 2
   damage: 10
+  delayBeforeShrink: 20
+  shrinkDuration: 1
+  spriteRend: {fileID: 6035642120541057564}
 --- !u!212 &6035642120541057564
 SpriteRenderer:
   m_ObjectHideFlags: 0
