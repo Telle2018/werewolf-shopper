@@ -222,8 +222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  attackDuration: 0.5
-  attackMoveSpeedBonus: 15
+  attackDuration: 0.2
+  attackMoveSpeedBonus: 20
   rb: {fileID: 675104453}
   cam: {fileID: 1628395205}
   spriteRend: {fileID: 675104450}
@@ -2999,11 +2999,11 @@ SceneRoots:
   m_Roots:
   - {fileID: 1628395206}
   - {fileID: 675104451}
+  - {fileID: 631952488495016862}
   - {fileID: 7564604872895488325}
   - {fileID: 7441801378566938214}
   - {fileID: 7193431641821689773}
   - {fileID: 1834816976}
-  - {fileID: 631952488495016862}
   - {fileID: 4045319046231279570}
   - {fileID: 1321468735}
   - {fileID: 2081318873}

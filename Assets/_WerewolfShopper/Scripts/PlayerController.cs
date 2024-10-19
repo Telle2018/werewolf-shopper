@@ -51,4 +51,12 @@ public class PlayerController : MonoBehaviour
         // Apply movement to Rigidbody
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (isAttacking)
+        {
+            collision.collider.GetComponent<PoliceAI>()?.Kill();
+        }
+    }
 }
