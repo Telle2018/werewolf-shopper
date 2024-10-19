@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isAttacking)
         {
-            collision.collider.GetComponent<PoliceAI>().Kill();
+            collision.collider.GetComponent<PoliceAI>()?.Kill();
         }
     }
 }
