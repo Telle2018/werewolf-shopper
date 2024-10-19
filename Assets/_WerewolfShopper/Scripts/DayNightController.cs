@@ -8,7 +8,7 @@ public class DayNightController : MonoBehaviour
     public bool IsDay { get; private set; }
 
     [SerializeField] GameObject nightPanel;
-    [SerializeField]
+    [SerializeField] PoliceSpawner policeSpawner;
 
     private void Awake()
     {
@@ -46,6 +46,7 @@ public class DayNightController : MonoBehaviour
         // People start fleeing
 
         // Police arrive
+        policeSpawner.StartSpawning();
 
     }
 
@@ -70,6 +71,6 @@ public class DayNightController : MonoBehaviour
         // People return to shopping
 
         // Police leave
-
+        policeSpawner.StopSpawning();
     }
 }
