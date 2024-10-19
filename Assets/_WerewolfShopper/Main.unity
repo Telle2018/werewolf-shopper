@@ -8267,6 +8267,7 @@ MonoBehaviour:
   parentObject: {fileID: 4841940951330720511}
   groceryOrange: {fileID: 6302865025838903218, guid: e55668b81d6284cf096e929ecd695a27, type: 3}
   groceryTomato: {fileID: 6302865025838903218, guid: 3bed00c63ccc245fdbf058ccf1c32af3, type: 3}
+  groceryMacAndCheese: {fileID: 6302865025838903218, guid: e2de29e252451457484b8aca55a70b95, type: 3}
 --- !u!224 &6718646068706688919
 RectTransform:
   m_ObjectHideFlags: 0

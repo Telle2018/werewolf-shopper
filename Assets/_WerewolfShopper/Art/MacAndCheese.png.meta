@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MacAndCheese_0: 7472471943734521960
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
