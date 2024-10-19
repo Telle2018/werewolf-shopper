@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ClockUI : MonoBehaviour
@@ -7,10 +5,10 @@ public class ClockUI : MonoBehaviour
     private const float ROTATION_PER_DAY = 360f;
     [SerializeField] private GameObject clockHand;
 
-    private float realSecondsPerDay = 5;
-    public float dayFraction;
-    public float dayTime;
-    public bool isDay = true;
+    private float realSecondsPerDay = 30;
+    private float dayFraction;
+    private float dayTime;
+    private bool isDay = true;
 
     // Update is called once per frame
     void Update()

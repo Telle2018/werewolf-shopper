@@ -5,12 +5,15 @@ using UnityEngine;
 public class DayNightController : MonoBehaviour
 {
     public static DayNightController Instance { get; private set; }
+    public bool IsDay { get; private set; }
 
     [SerializeField] GameObject nightPanel;
     [SerializeField]
 
     private void Awake()
     {
+        IsDay = true;
+
         if (Instance != null)
         {
             Destroy(gameObject);
@@ -24,6 +27,8 @@ public class DayNightController : MonoBehaviour
 
     public void TransitionToNight()
     {
+        IsDay = false;
+
         // Stop day music
         SoundManager.Instance.PlayDayMusic(false);
 
@@ -46,6 +51,8 @@ public class DayNightController : MonoBehaviour
 
     public void TransitionToDay()
     {
+        IsDay = true;
+
         // Stop night music
         SoundManager.Instance.PlayNightMusic(false);
 
