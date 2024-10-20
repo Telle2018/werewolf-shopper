@@ -7,6 +7,7 @@ public class Score : MonoBehaviour
     public static Score Instance { get; private set; }
 
     [SerializeField] private TextMeshProUGUI _scoreText;
+    [SerializeField] private TextMeshProUGUI _endGameScoreText;
     [SerializeField] private float pointBurstRate;
     private int _score = 0;
 
@@ -29,6 +30,7 @@ public class Score : MonoBehaviour
     {
         _score += points;
         _scoreText.text = _score.ToString();
+        _endGameScoreText.text = _score.ToString();
     }
 
     public void PointBurst(int points)

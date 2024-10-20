@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private Slider _healthSlider;
+    [SerializeField] private GameObject _endGameCanvas;
 
     private int _health = 50;
     public bool _isDead = false;
@@ -25,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
         if (_health <= 0)
         {
             _isDead = true;
-            SceneManager.LoadScene("MainMenu");
+            _endGameCanvas.SetActive(true);
         }
     }
 
