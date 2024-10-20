@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,12 +26,14 @@ public class DayNightController : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        SoundManager.Instance.PlayDayMusic();
+    }
+
     public void TransitionToNight()
     {
         IsDay = false;
-
-        // Stop day music
-        SoundManager.Instance.PlayDayMusic();
 
         // Transition sound
         SoundManager.Instance.PlayTransitionSound();
@@ -53,9 +56,6 @@ public class DayNightController : MonoBehaviour
     public void TransitionToDay()
     {
         IsDay = true;
-
-        // Stop night music
-        SoundManager.Instance.PlayNightMusic();
 
         // Transition sound
         SoundManager.Instance.PlayTransitionSound();
