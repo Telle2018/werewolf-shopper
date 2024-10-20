@@ -1,28 +1,25 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using NUnit.Framework;
-using NUnit.Framework.Internal;
 using TMPro;
-using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class GroceryListManager : MonoBehaviour
 {
     public static GroceryListManager Instance { get; private set; }
+    
     public GameObject groceryItemOnList;
     public GameObject parentObject;
     public GameObject groceryOrange;
     public GameObject groceryTomato;
     public GameObject groceryMacAndCheese;
 
-    private List<GameObject> spawnedGroceryObjects;
+    private readonly List<GameObject> spawnedGroceryObjects = new List<GameObject>();
     private GameObject[] spawnPoints;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private int minCashReward = 5;
+    private int maxCashReward = 15;
+
+    private Dictionary<string, (GameObject prefab, string displayName, string listName)> groceryData;
 
     private void Awake()
     {
@@ -35,117 +32,93 @@ public class GroceryListManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
+        InitializeGroceryData();
     }
 
-
-    void Start()
+    private void InitializeGroceryData()
     {
-        spawnedGroceryObjects = new List<GameObject> {};
+        groceryData = new Dictionary<string, (GameObject, string, string)>
+        {
+            { "Orange", (groceryOrange, "Oranges", "OrangeList") },
+            { "Tomato", (groceryTomato, "Tomatoes", "TomatoList") },
+            { "MacAndCheese", (groceryMacAndCheese, "Mac and Cheeses", "MacAndCheeseList") }
+        };
+    }
+
+    private void Start()
+    {
         spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+        SpawnGroceries();
+    }
+
+    private void SpawnGroceries()
+    {
         foreach (GameObject spawn in spawnPoints)
         {
-            int rng = UnityEngine.Random.Range(0, 3);
-            if (rng == 0)
-            {
-                GameObject newGroceryObject = Instantiate(groceryOrange, spawn.transform);
-                newGroceryObject.name = "Orange";
-                spawnedGroceryObjects.Add(newGroceryObject);
-            }
-            if (rng == 1)
-            {
-                GameObject newGroceryObject = Instantiate(groceryTomato, spawn.transform);
-                newGroceryObject.name = "Tomato";
-                spawnedGroceryObjects.Add(newGroceryObject);
-            }
-            if (rng == 2)
-            {
-                GameObject newGroceryObject = Instantiate(groceryMacAndCheese, spawn.transform);
-                newGroceryObject.name = "MacAndCheese";
-                spawnedGroceryObjects.Add(newGroceryObject);
-            }
+            int rng = UnityEngine.Random.Range(0, groceryData.Count);
+            var entry = new List<string>(groceryData.Keys)[rng];
+            var groceryInfo = groceryData[entry];
+
+            GameObject groceryObject = Instantiate(groceryInfo.prefab, spawn.transform);
+            groceryObject.name = entry;
+            spawnedGroceryObjects.Add(groceryObject);
         }
 
-        if (spawnedGroceryObjects.Count > 0)
+        foreach (var entry in groceryData)
         {
-            AddGroceryItem(groceryOrange.GetComponent<SpriteRenderer>().sprite,"Oranges", "OrangeList", spawnedGroceryObjects.Count(obj => obj.name == "Orange"));
-            AddGroceryItem(groceryTomato.GetComponent<SpriteRenderer>().sprite,"Tomatoes", "TomatoList", spawnedGroceryObjects.Count(obj => obj.name == "Tomato"));
-            AddGroceryItem(groceryMacAndCheese.GetComponent<SpriteRenderer>().sprite,"Mac and Cheeses", "MacAndCheeseList", spawnedGroceryObjects.Count(obj => obj.name == "MacAndCheese"));
+            int count = spawnedGroceryObjects.Count(obj => obj.name == entry.Key);
+            if (count > 0)
+            {
+                AddGroceryItem(
+                    entry.Value.prefab.GetComponent<SpriteRenderer>().sprite,
+                    entry.Value.displayName,
+                    entry.Value.listName,
+                    count
+                );
+            }
         }
-
     }
+
     public GameObject AddGroceryItem(Sprite sprite, string text, string name, int quantity)
     {
+        if (quantity <= 0) return null;
 
         GameObject newGroceryItem = Instantiate(groceryItemOnList, parentObject.transform);
-
-        Transform childTextTransform = newGroceryItem.transform.Find("ObjectText");
-
-        TMP_Text groceryText = childTextTransform.GetComponent<TMP_Text>();
-
-        groceryText.text = text;
-
-        Transform childSpriteTransform = newGroceryItem.transform.Find("Image");
-
-        Image grocerySprite = childSpriteTransform.GetComponent<Image>();
-
-        grocerySprite.sprite = sprite;
-
         newGroceryItem.name = name;
 
-        Transform childQuantityTransform = newGroceryItem.transform.Find("QuantityText");
+        TMP_Text groceryText = newGroceryItem.transform.Find("ObjectText").GetComponent<TMP_Text>();
+        groceryText.text = text;
 
-        TMP_Text quantityText = childQuantityTransform.GetComponent<TMP_Text>();
+        Image grocerySprite = newGroceryItem.transform.Find("Image").GetComponent<Image>();
+        grocerySprite.sprite = sprite;
 
+        TMP_Text quantityText = newGroceryItem.transform.Find("QuantityText").GetComponent<TMP_Text>();
         quantityText.text = quantity.ToString();
-
-        if (quantity <= 0)
-        {
-            Destroy(newGroceryItem);
-        }
 
         return newGroceryItem;
     }
 
-    public void UpdateItemQuantity(GameObject groceryObject , int amountRemoved)
+    public void UpdateItemQuantity(GameObject groceryObject, int amountRemoved)
     {
-        if (groceryObject.name == "Orange")
-        {
-            GameObject orangeItem = GameObject.Find("OrangeList");
-            Transform objIntText = orangeItem.transform.Find("QuantityText");
-            int objInt = int.Parse(objIntText.GetComponent<TMP_Text>().text);
-            objInt -= amountRemoved;
-            objIntText.GetComponent<TMP_Text>().text = objInt.ToString();
+        string objectName = groceryObject.name;
+        if (!groceryData.ContainsKey(objectName)) return;
+        
+        Score.Instance.PointBurst(Random.Range(minCashReward, maxCashReward));
+        MoneyParticles.Instance.Burst();
 
-            if (objInt <= 0)
-            {
-                Destroy(orangeItem);
-            }
-        }
-        if (groceryObject.name == "Tomato")
-        {
-            GameObject TomatoItem = GameObject.Find("TomatoList");
-            Transform objIntText = TomatoItem.transform.Find("QuantityText");
-            int objInt = int.Parse(objIntText.GetComponent<TMP_Text>().text);
-            objInt -= amountRemoved;
-            objIntText.GetComponent<TMP_Text>().text = objInt.ToString();
+        GameObject listItem = GameObject.Find(groceryData[objectName].listName);
+        if (listItem == null) return;
 
-            if (objInt <= 0)
-            {
-                Destroy(TomatoItem);
-            }
-        }
-        if (groceryObject.name == "MacAndCheese")
-        {
-            GameObject MacAndCheeseItem = GameObject.Find("MacAndCheeseList");
-            Transform objIntText = MacAndCheeseItem.transform.Find("QuantityText");
-            int objInt = int.Parse(objIntText.GetComponent<TMP_Text>().text);
-            objInt -= amountRemoved;
-            objIntText.GetComponent<TMP_Text>().text = objInt.ToString();
+        TMP_Text quantityText = listItem.transform.Find("QuantityText").GetComponent<TMP_Text>();
+        int currentQuantity = int.Parse(quantityText.text);
 
-            if (objInt <= 0)
-            {
-                Destroy(MacAndCheeseItem);
-            }
-        }
+        currentQuantity -= amountRemoved;
+        quantityText.text = currentQuantity.ToString();
+
+        if (currentQuantity <= 0)
+        {
+            Destroy(listItem);
         }
     }
+}

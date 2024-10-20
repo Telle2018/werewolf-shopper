@@ -50,7 +50,6 @@ public class PlayerController : MonoBehaviour
             Vector2 lookDir = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
             angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle);
-            print("lookdir: " + lookDir.x + " " + lookDir.y);
             if (lookDir.x < 0)
             {
                 humanSpriteRend.flipY = true;
