@@ -65,9 +65,15 @@ public class GroceryListManager : MonoBehaviour
             var entry = new List<string>(groceryData.Keys)[rng];
             var groceryInfo = groceryData[entry];
 
-            GameObject groceryObject = Instantiate(groceryInfo.prefab, spawn.transform);
-            groceryObject.name = entry;
-            spawnedGroceryObjects.Add(groceryObject);
+            int rng2 = UnityEngine.Random.Range(0,3);
+
+            if (rng2 != 0)
+            {
+                GameObject groceryObject = Instantiate(groceryInfo.prefab, spawn.transform);
+                groceryObject.name = entry;
+                spawnedGroceryObjects.Add(groceryObject);
+            }
+
         }
 
         foreach (var entry in groceryData)
