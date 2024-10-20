@@ -7838,9 +7838,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 7193431641821689774}
-  _dayMusic: {fileID: 8300000, guid: e25a017e5e854974db51073107d85b8b, type: 3}
+  _dayMusic: {fileID: 8300000, guid: 86b80cc4841fbc54c903f67836a6752a, type: 3}
   _nightMusic: {fileID: 8300000, guid: e25a017e5e854974db51073107d85b8b, type: 3}
-  _transition: {fileID: 0}
+  _transitionSound: {fileID: 8300000, guid: 1ebf406ee359419448264848e40ed4fa, type: 3}
   _attack: {fileID: 0}
   _takeDamage: {fileID: 0}
   _foundItem: {fileID: 0}
