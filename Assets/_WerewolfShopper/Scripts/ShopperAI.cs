@@ -6,6 +6,10 @@ public class ShopperAI : MonoBehaviour
     [SerializeField] private float _walkSpeed;          // Speed when walking during the day
     [SerializeField] private float _runSpeed;           // Speed when running at night
     [SerializeField] private float _shoppingPause = 2f; // Length of time to pause to shop upon collision
+    [SerializeField] private Color deadColor;
+    [SerializeField] private SpriteRenderer spriteRend;
+    [SerializeField] private float delayBeforeShrink = 5;
+    [SerializeField] private float shrinkDuration = 1;
 
     public bool _isMoving;          // Indicates if player is moving
     public float randomX;           // Random X for random direction
@@ -13,6 +17,8 @@ public class ShopperAI : MonoBehaviour
     private Vector3 moveTowards;    // Direction to move towards
     private Transform player;       // Reference to the player's transform
     private bool isAlive;
+    private int pointValueMin = 5;
+    private int pointValueMax = 50;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -74,5 +80,24 @@ public class ShopperAI : MonoBehaviour
             // Pause movement to shop
             StartCoroutine(PauseToShop());
         }
+    }
+    public void Die()
+    {
+        if (isAlive)
+        {
+            spriteRend.color = deadColor;
+            isAlive = false;
+            StartCoroutine(Despawn());
+            MoneyParticles.Instance.Burst();
+            Score.Instance.PointBurst(Random.Range(pointValueMin, pointValueMax));
+        }
+    }
+    
+    IEnumerator Despawn()
+    {
+        yield return new WaitForSeconds(delayBeforeShrink);
+        LeanTween.scale(gameObject, Vector3.zero, shrinkDuration);
+        yield return new WaitForSeconds(shrinkDuration);
+        Destroy(gameObject);
     }
 }

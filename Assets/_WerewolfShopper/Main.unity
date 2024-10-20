@@ -3223,6 +3223,10 @@ MonoBehaviour:
   _walkSpeed: 3
   _runSpeed: 10
   _shoppingPause: 2
+  deadColor: {r: 0, g: 0, b: 0, a: 0}
+  spriteRend: {fileID: 0}
+  delayBeforeShrink: 5
+  shrinkDuration: 1
   _isMoving: 0
   randomX: 0
   randomY: 0
@@ -3384,6 +3388,10 @@ MonoBehaviour:
   _walkSpeed: 0
   _runSpeed: 0
   _shoppingPause: 2
+  deadColor: {r: 0, g: 0, b: 0, a: 0}
+  spriteRend: {fileID: 0}
+  delayBeforeShrink: 5
+  shrinkDuration: 1
   _isMoving: 0
   randomX: 0
   randomY: 0
@@ -12879,34 +12887,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2342670451291303043, guid: 937ef34978a00ed49884c2c2096898e4, type: 3}
-      propertyPath: m_Size.y
-      value: 1.2901723
-      objectReference: {fileID: 0}
-    - target: {fileID: 2342670451291303043, guid: 937ef34978a00ed49884c2c2096898e4, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.010363221
-      objectReference: {fileID: 0}
-    - target: {fileID: 2342670451291303043, guid: 937ef34978a00ed49884c2c2096898e4, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.94
-      objectReference: {fileID: 0}
-    - target: {fileID: 2342670451291303043, guid: 937ef34978a00ed49884c2c2096898e4, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3301822954896689092, guid: 937ef34978a00ed49884c2c2096898e4, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.118946
-      objectReference: {fileID: 0}
-    - target: {fileID: 3301822954896689092, guid: 937ef34978a00ed49884c2c2096898e4, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.118946
-      objectReference: {fileID: 0}
-    - target: {fileID: 3301822954896689092, guid: 937ef34978a00ed49884c2c2096898e4, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.118946
-      objectReference: {fileID: 0}
     - target: {fileID: 3301822954896689092, guid: 937ef34978a00ed49884c2c2096898e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.64
@@ -12947,57 +12927,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6035642120541057564, guid: 937ef34978a00ed49884c2c2096898e4, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -1337135919587698365, guid: 8e22400a60b351d4697719ea132616b9, type: 3}
-    - target: {fileID: 6035642120541057564, guid: 937ef34978a00ed49884c2c2096898e4, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6035642120541057564, guid: 937ef34978a00ed49884c2c2096898e4, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6035642120541057564, guid: 937ef34978a00ed49884c2c2096898e4, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6960069566514668589, guid: 937ef34978a00ed49884c2c2096898e4, type: 3}
       propertyPath: m_Name
-      value: Shopper 1
+      value: Shopper
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6960069566514668589, guid: 937ef34978a00ed49884c2c2096898e4, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 8031434247861733903}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 937ef34978a00ed49884c2c2096898e4, type: 3}
---- !u!1 &8031434247861733902 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6960069566514668589, guid: 937ef34978a00ed49884c2c2096898e4, type: 3}
-  m_PrefabInstance: {fileID: 8031434247861733901}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8031434247861733903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8031434247861733902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9cab2e1f69f7414da022316cc6ac07c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _walkSpeed: 3
-  _runSpeed: 10
-  _shoppingPause: 2
-  _isMoving: 0
-  randomX: 0
-  randomY: 0
 --- !u!224 &8136535636632002281
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13126,6 +13064,7 @@ SceneRoots:
   - {fileID: 1628395206}
   - {fileID: 675104451}
   - {fileID: 631952488495016862}
+  - {fileID: 8031434247861733901}
   - {fileID: 7564604872895488325}
   - {fileID: 7441801378566938214}
   - {fileID: 7193431641821689773}
@@ -13133,7 +13072,6 @@ SceneRoots:
   - {fileID: 1151745986}
   - {fileID: 4045319046231279570}
   - {fileID: 1321468735}
-  - {fileID: 8031434247861733901}
   - {fileID: 1086328448}
   - {fileID: 1860839379}
   - {fileID: 823535944}

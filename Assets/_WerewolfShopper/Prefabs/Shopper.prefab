@@ -50,6 +50,10 @@ MonoBehaviour:
   _walkSpeed: 3
   _runSpeed: 10
   _shoppingPause: 2
+  deadColor: {r: 1, g: 0.29803923, b: 0.29803923, a: 1}
+  spriteRend: {fileID: 6035642120541057564}
+  delayBeforeShrink: 5
+  shrinkDuration: 1
   _isMoving: 0
   randomX: 0
   randomY: 0
