@@ -13,6 +13,8 @@ public class GroceryListManager : MonoBehaviour
     public GameObject groceryOrange;
     public GameObject groceryTomato;
     public GameObject groceryMacAndCheese;
+    public GameObject groceryWatermelon;
+    public GameObject groceryPizza;
 
     public List<GameObject> spawnedGroceryObjects = new List<GameObject>();
     private GameObject[] spawnPoints;
@@ -42,7 +44,9 @@ public class GroceryListManager : MonoBehaviour
         {
             { "Orange", (groceryOrange, "Oranges", "OrangeList") },
             { "Tomato", (groceryTomato, "Tomatoes", "TomatoList") },
-            { "MacAndCheese", (groceryMacAndCheese, "Mac and Cheeses", "MacAndCheeseList") }
+            { "MacAndCheese", (groceryMacAndCheese, "Mac and Cheeses", "MacAndCheeseList") },
+            { "Pizza", (groceryPizza, "Pizzas", "PizzaList") },
+            { "Watermelon", (groceryWatermelon, "Watermelons", "WatermelonList") }
         };
     }
 
