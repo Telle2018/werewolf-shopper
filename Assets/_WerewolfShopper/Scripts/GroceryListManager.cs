@@ -32,7 +32,7 @@ public class GroceryListManager : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
 
         InitializeGroceryData();
