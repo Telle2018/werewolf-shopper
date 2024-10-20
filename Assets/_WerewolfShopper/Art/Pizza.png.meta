@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 47958dd21a044e744a72b52048c2a8db
+guid: 684e53a2104ff49ef8d1721c0f9397ff
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1086331387851373080
-    second: button1_0
+      213: 6048862160296339182
+    second: Pizza_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: button1_0
+      name: Pizza_0
       rect:
         serializedVersion: 2
-        x: 1065
-        y: 857
-        width: 626
-        height: 314
+        x: 6
+        y: 9
+        width: 739
+        height: 728
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 81afc3144ac631f00800000000000000
-      internalID: 1086331387851373080
+      spriteID: ee6e3c72610e1f350800000000000000
+      internalID: 6048862160296339182
       vertices: []
       indices: 
       edges: []
@@ -134,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      button1_0: 1086331387851373080
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

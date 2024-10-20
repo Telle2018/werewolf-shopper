@@ -65,11 +65,14 @@ public class PoliceAI : MonoBehaviour
 
     public void Die()
     {
-        spriteRend.color = deadColor;
-        isAlive = false;
-        StartCoroutine(Despawn());
-        MoneyParticles.Instance.Burst();
-        Score.Instance.PointBurst(Random.Range(pointValueMin, pointValueMax));
+        if (isAlive)
+        {
+            spriteRend.color = deadColor;
+            isAlive = false;
+            StartCoroutine(Despawn());
+            MoneyParticles.Instance.Burst();
+            Score.Instance.PointBurst(Random.Range(pointValueMin, pointValueMax));
+        }
     }
 
     IEnumerator Despawn()

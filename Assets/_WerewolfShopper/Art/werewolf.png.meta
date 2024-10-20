@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      werewolf_0: 8859273575814025313
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

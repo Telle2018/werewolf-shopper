@@ -9,6 +9,7 @@ public class DayNightController : MonoBehaviour
     public bool IsDay { get; private set; }
 
     [SerializeField] GameObject nightPanel;
+    [SerializeField] GameObject groceryList;
     [SerializeField] PoliceSpawner policeSpawner;
     [SerializeField] PersonSpawner shopperSpawner;
 
@@ -30,6 +31,7 @@ public class DayNightController : MonoBehaviour
     private void Start()
     {
         SoundManager.Instance.PlayDayMusic();
+        groceryList.SetActive(true);
     }
 
     public void TransitionToNight()
@@ -41,6 +43,8 @@ public class DayNightController : MonoBehaviour
 
         // Red panel overlay
         nightPanel.SetActive(true);
+        
+        groceryList.SetActive(false);
 
         // Change player image to werewolf
         PlayerController.Instance.BecomeWolf();
@@ -62,6 +66,8 @@ public class DayNightController : MonoBehaviour
 
         // Remove red panel overlay
         nightPanel.SetActive(false);
+        
+        groceryList.SetActive(true);
 
         // Change player image to human
         PlayerController.Instance.BecomeHuman();

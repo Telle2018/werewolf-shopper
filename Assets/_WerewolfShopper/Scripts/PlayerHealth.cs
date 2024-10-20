@@ -6,7 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private Slider _healthSlider;
 
-    private int _health = 200;
+    private int _health = 50;
     public bool _isDead = false;
 
     private void Start()
