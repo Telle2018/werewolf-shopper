@@ -58,9 +58,6 @@ public class DayNightController : MonoBehaviour
     {
         IsDay = true;
 
-        // Transition sound
-        SoundManager.Instance.PlayTransitionSound();
-
         // Remove red panel overlay
         nightPanel.SetActive(false);
 

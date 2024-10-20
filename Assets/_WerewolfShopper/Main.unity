@@ -7539,7 +7539,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 200
   m_WholeNumbers: 1
-  m_Value: 0
+  m_Value: 200
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7595,7 +7595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1886279249864973312
 GameObject:
   m_ObjectHideFlags: 0
@@ -7930,7 +7930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 7193431641821689774}
   _dayMusic: {fileID: 8300000, guid: 86b80cc4841fbc54c903f67836a6752a, type: 3}
-  _nightMusic: {fileID: 8300000, guid: e25a017e5e854974db51073107d85b8b, type: 3}
+  _nightMusic: {fileID: 8300000, guid: f3281a7a17d472e4c840cdd8b4f849b6, type: 3}
   _transitionSound: {fileID: 8300000, guid: 1ebf406ee359419448264848e40ed4fa, type: 3}
   _attack: {fileID: 0}
   _takeDamage: {fileID: 0}
@@ -8294,8 +8294,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: -0.7900009, y: 0}
+  m_SizeDelta: {x: -8.41, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6012868978851863527
 MonoBehaviour:
@@ -8521,7 +8521,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         _healthSlider.maxValue = _health;
+        _healthSlider.value = _health;
     }
 
     public void TakeDamage(int damage)
