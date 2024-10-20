@@ -32,6 +32,7 @@ public class DayNightController : MonoBehaviour
     {
         SoundManager.Instance.PlayDayMusic();
         groceryList.SetActive(true);
+        shopperSpawner.StartSpawning();
     }
 
     public void TransitionToNight()
@@ -77,6 +78,7 @@ public class DayNightController : MonoBehaviour
 
         // Start spawning shoppers again
         shopperSpawner.StartSpawning();
+
 
         // Police leave
         policeSpawner.StopSpawning();

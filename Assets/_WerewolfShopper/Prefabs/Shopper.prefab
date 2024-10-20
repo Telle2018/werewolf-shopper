@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cab2e1f69f7414da022316cc6ac07c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _walkSpeed: 1
-  _runSpeed: 5
-  _shoppingPause: 1
+  _walkSpeed: 3
+  _runSpeed: 10
+  _shoppingPause: 2
   _isMoving: 0
   randomX: 0
   randomY: 0
