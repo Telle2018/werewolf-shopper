@@ -18,6 +18,7 @@ public class ShopperAI : MonoBehaviour
     {
         _isMoving = false;
         player = GameObject.FindGameObjectWithTag("Player").transform;  // Find the player by tag
+        StartCoroutine(PauseToShop());
     }
 
     // Update is called once per frame
