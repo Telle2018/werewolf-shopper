@@ -11,11 +11,12 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         _healthSlider.maxValue = _health;
+        _healthSlider.value = _health;
     }
 
     public void TakeDamage(int damage)
     {
-        SoundManager.Instance.PlayTakeDamange();
+        SoundManager.Instance.PlayTakeDamage();
 
         _health -= damage;
         _healthSlider.value = _health;

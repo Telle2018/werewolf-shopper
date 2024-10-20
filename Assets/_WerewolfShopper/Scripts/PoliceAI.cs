@@ -8,15 +8,15 @@ public class PoliceAI : MonoBehaviour
     [SerializeField] private float attackRange = 1.5f;        // Range within which the enemy can attack the player
     [SerializeField] private float attackCooldown = 2f;       // Cooldown between attacks
     [SerializeField] private int damage = 10;
-
     [SerializeField] private float delayBeforeShrink = 5;
     [SerializeField] private float shrinkDuration = 1;
     [SerializeField] private SpriteRenderer spriteRend;
-
-    // New fields
     [SerializeField] private GameObject bulletPrefab;          // Reference to the bullet prefab
     [SerializeField] private Transform firePoint;              // The point from where the bullet will be fired
     [SerializeField] private float bulletSpeed = 10f;          // Speed of the bullet
+    [SerializeField] private int pointValueMin;
+    [SerializeField] private int pointValueMax;
+    [SerializeField] private Color deadColor;
 
     private Transform player;               // Reference to the player's transform
     private float lastAttackTime = 0;       // Time of last attack
@@ -40,12 +40,12 @@ public class PoliceAI : MonoBehaviour
         // Rotate towards the player
         RotateTowardsPlayer();
 
-        // Chase the player if within chase range
-        if (distanceToPlayer <= chaseRange && distanceToPlayer > attackRange)
+        // Chase the player if within chase range if player is human
+        if (!PlayerController.Instance.isHuman && distanceToPlayer <= chaseRange && distanceToPlayer > attackRange)
         {
             ChasePlayer();
         }
-        else if (distanceToPlayer <= attackRange) // Attack if within attack range
+        else if (!PlayerController.Instance.isHuman && distanceToPlayer <= attackRange) // Attack if within attack range
         {
             if (Time.time > lastAttackTime + attackCooldown)
             {
@@ -63,11 +63,13 @@ public class PoliceAI : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
-    public void Kill()
+    public void Die()
     {
-        spriteRend.color = Color.black;
+        spriteRend.color = deadColor;
         isAlive = false;
         StartCoroutine(Despawn());
+        MoneyParticles.Instance.Burst();
+        Score.Instance.PointBurst(Random.Range(pointValueMin, pointValueMax));
     }
 
     IEnumerator Despawn()

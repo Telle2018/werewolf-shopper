@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class DayNightController : MonoBehaviour
     public bool IsDay { get; private set; }
 
     [SerializeField] GameObject nightPanel;
-    [SerializeField]
+    [SerializeField] PoliceSpawner policeSpawner;
 
     private void Awake()
     {
@@ -25,27 +26,31 @@ public class DayNightController : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        SoundManager.Instance.PlayDayMusic();
+    }
+
     public void TransitionToNight()
     {
         IsDay = false;
 
-        // Stop day music
-        SoundManager.Instance.PlayDayMusic(false);
-
         // Transition sound
-        SoundManager.Instance.PlayTransition();
+        SoundManager.Instance.PlayTransitionSound();
 
         // Red panel overlay
         nightPanel.SetActive(true);
 
         // Change player image to werewolf
+        PlayerController.Instance.BecomeWolf();
 
         // Start night music
-        SoundManager.Instance.PlayNightMusic(true);
+        SoundManager.Instance.PlayNightMusic();
 
         // People start fleeing
 
         // Police arrive
+        policeSpawner.StartSpawning();
 
     }
 
@@ -53,23 +58,18 @@ public class DayNightController : MonoBehaviour
     {
         IsDay = true;
 
-        // Stop night music
-        SoundManager.Instance.PlayNightMusic(false);
-
-        // Transition sound
-        SoundManager.Instance.PlayTransition();
-
         // Remove red panel overlay
         nightPanel.SetActive(false);
 
         // Change player image to human
+        PlayerController.Instance.BecomeHuman();
 
         // Start day music
-        SoundManager.Instance.PlayDayMusic(true);
+        SoundManager.Instance.PlayDayMusic();
 
         // People return to shopping
 
         // Police leave
-
+        policeSpawner.StopSpawning();
     }
 }
