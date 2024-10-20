@@ -11,6 +11,7 @@ public class DayNightController : MonoBehaviour
     [SerializeField] GameObject nightPanel;
     [SerializeField] GameObject groceryList;
     [SerializeField] PoliceSpawner policeSpawner;
+    [SerializeField] PersonSpawner shopperSpawner;
 
     private void Awake()
     {
@@ -51,7 +52,8 @@ public class DayNightController : MonoBehaviour
         // Start night music
         SoundManager.Instance.PlayNightMusic();
 
-        // People start fleeing
+        // Stop spawning shoppers
+        shopperSpawner.StopSpawning();
 
         // Police arrive
         policeSpawner.StartSpawning();
@@ -73,7 +75,8 @@ public class DayNightController : MonoBehaviour
         // Start day music
         SoundManager.Instance.PlayDayMusic();
 
-        // People return to shopping
+        // Start spawning shoppers again
+        shopperSpawner.StartSpawning();
 
         // Police leave
         policeSpawner.StopSpawning();
