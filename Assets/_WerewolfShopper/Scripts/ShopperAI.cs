@@ -12,6 +12,8 @@ public class ShopperAI : MonoBehaviour
     public float randomY;           // Random Y for random direction
     private Vector3 moveTowards;    // Direction to move towards
     private Transform player;       // Reference to the player's transform
+    private bool isAlive;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
