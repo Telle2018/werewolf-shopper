@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_WerewolfShopper/Main.unity
     guid: 4e3830e9eb3c6ff4fa5d8a7e3d7b8790
+  - enabled: 1
+    path: Assets/_WerewolfShopper/Credits.unity
+    guid: ea7cf28994daf8c4091e922e95f11ed9
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
