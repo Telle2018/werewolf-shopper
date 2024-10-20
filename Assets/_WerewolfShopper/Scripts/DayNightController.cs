@@ -42,6 +42,7 @@ public class DayNightController : MonoBehaviour
         nightPanel.SetActive(true);
 
         // Change player image to werewolf
+        PlayerController.Instance.BecomeWolf();
 
         // Start night music
         SoundManager.Instance.PlayNightMusic();
@@ -64,6 +65,7 @@ public class DayNightController : MonoBehaviour
         nightPanel.SetActive(false);
 
         // Change player image to human
+        PlayerController.Instance.BecomeHuman();
 
         // Start day music
         SoundManager.Instance.PlayDayMusic();

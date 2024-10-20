@@ -40,12 +40,12 @@ public class PoliceAI : MonoBehaviour
         // Rotate towards the player
         RotateTowardsPlayer();
 
-        // Chase the player if within chase range
-        if (distanceToPlayer <= chaseRange && distanceToPlayer > attackRange)
+        // Chase the player if within chase range if player is human
+        if (!PlayerController.Instance.isHuman && distanceToPlayer <= chaseRange && distanceToPlayer > attackRange)
         {
             ChasePlayer();
         }
-        else if (distanceToPlayer <= attackRange) // Attack if within attack range
+        else if (!PlayerController.Instance.isHuman && distanceToPlayer <= attackRange) // Attack if within attack range
         {
             if (Time.time > lastAttackTime + attackCooldown)
             {

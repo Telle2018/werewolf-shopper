@@ -38,7 +38,7 @@ public class SoundManager : MonoBehaviour
         _audioSource.Play();
     }
 
-    public void PlayTakeDamange()
+    public void PlayTakeDamage()
     {
         _audioSource.PlayOneShot(_takeDamage);
     }

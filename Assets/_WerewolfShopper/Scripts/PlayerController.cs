@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance { get; private set; }
+    
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float attackDuration = .5f;
     [SerializeField] private float attackBuffer = .25f; //how much time after attack is player collider still a hurtbox
@@ -12,11 +14,32 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Camera cam;
     [SerializeField] private SpriteRenderer spriteRend;
+    [SerializeField] private GameObject wolfSpriteObject;
+    [SerializeField] private GameObject humanSpriteObject;
     private Vector2 movement;
     private bool isAttacking;
     private float angle;
+    public bool isHuman;
 
-    void Update()
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        BecomeHuman();
+    }
+
+    void LateUpdate()
     {
         if (!isAttacking)
         {
@@ -29,7 +52,7 @@ public class PlayerController : MonoBehaviour
             angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle);
         }
-        if (Input.GetMouseButtonDown(0) && (movement.x != 0 || movement.y != 0))
+        if (!isHuman && Input.GetMouseButtonDown(0) && (movement.x != 0 || movement.y != 0))
         {
             StartCoroutine(Attack());
         }
@@ -47,7 +70,6 @@ public class PlayerController : MonoBehaviour
         isAttacking = false;
     }
 
-
     void FixedUpdate()
     {
         // Apply movement to Rigidbody
@@ -60,5 +82,19 @@ public class PlayerController : MonoBehaviour
         {
             collision.collider.GetComponent<PoliceAI>()?.Die();
         }
+    }
+
+    public void BecomeHuman()
+    {
+        isHuman = true;
+        wolfSpriteObject.SetActive(false);
+        humanSpriteObject.SetActive(true);
+    }
+
+    public void BecomeWolf()
+    {
+        isHuman = false;
+        wolfSpriteObject.SetActive(true);
+        humanSpriteObject.SetActive(false);
     }
 }

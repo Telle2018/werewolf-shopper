@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        SoundManager.Instance.PlayTakeDamange();
+        SoundManager.Instance.PlayTakeDamage();
 
         _health -= damage;
         _healthSlider.value = _health;
