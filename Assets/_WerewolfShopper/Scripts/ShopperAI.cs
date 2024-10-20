@@ -16,7 +16,7 @@ public class ShopperAI : MonoBehaviour
     public float randomY;           // Random Y for random direction
     private Vector3 moveTowards;    // Direction to move towards
     private Transform player;       // Reference to the player's transform
-    private bool isAlive;
+    private bool isAlive = true;
     private int pointValueMin = 5;
     private int pointValueMax = 50;
     
@@ -32,30 +32,33 @@ public class ShopperAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_isMoving)
+        if (isAlive)
         {
-            // Get new random destination point to move towards
-            randomX = Random.Range(-100f, 100f);
-            randomY = Random.Range(-100f, 100f);
-            moveTowards = new Vector3(randomX, randomY, 0);
-        }
-
-        
-        if (DayNightController.Instance.IsDay)
-        {
-            if (_isMoving)
+            if (!_isMoving)
             {
-                //walk in random direction
-                gameObject.transform.position = Vector2.MoveTowards(transform.position, moveTowards, _walkSpeed * Time.deltaTime);
+                // Get new random destination point to move towards
+                randomX = Random.Range(-100f, 100f);
+                randomY = Random.Range(-100f, 100f);
+                moveTowards = new Vector3(randomX, randomY, 0);
             }
-        }
-        else
-        {
-            //run away from the player
-            moveTowards = new Vector3(-player.position.x, -player.position.y, 0);
-            transform.position = Vector2.MoveTowards(transform.position, moveTowards, _runSpeed * Time.deltaTime);
 
-            // scream at random intervals
+
+            if (DayNightController.Instance.IsDay)
+            {
+                if (_isMoving)
+                {
+                    //walk in random direction
+                    gameObject.transform.position = Vector2.MoveTowards(transform.position, moveTowards, _walkSpeed * Time.deltaTime);
+                }
+            }
+            else
+            {
+                //run away from the player
+                moveTowards = new Vector3(-player.position.x, -player.position.y, 0);
+                transform.position = Vector2.MoveTowards(transform.position, moveTowards, _runSpeed * Time.deltaTime);
+
+                // scream at random intervals
+            }
         }
     }
 
