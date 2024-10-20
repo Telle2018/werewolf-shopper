@@ -8,7 +8,6 @@ public class PoliceAI : MonoBehaviour
     [SerializeField] private float attackRange = 1.5f;        // Range within which the enemy can attack the player
     [SerializeField] private float attackCooldown = 2f;       // Cooldown between attacks
     [SerializeField] private int damage = 10;
-
     [SerializeField] private float delayBeforeShrink = 5;
     [SerializeField] private float shrinkDuration = 1;
     [SerializeField] private SpriteRenderer spriteRend;
@@ -17,6 +16,7 @@ public class PoliceAI : MonoBehaviour
     [SerializeField] private float bulletSpeed = 10f;          // Speed of the bullet
     [SerializeField] private int pointValueMin;
     [SerializeField] private int pointValueMax;
+    [SerializeField] private Color deadColor;
 
     private Transform player;               // Reference to the player's transform
     private float lastAttackTime = 0;       // Time of last attack
@@ -65,7 +65,7 @@ public class PoliceAI : MonoBehaviour
 
     public void Die()
     {
-        spriteRend.color = Color.black;
+        spriteRend.color = deadColor;
         isAlive = false;
         StartCoroutine(Despawn());
         MoneyParticles.Instance.Burst();

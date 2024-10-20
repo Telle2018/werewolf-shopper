@@ -30,10 +30,10 @@ public class DayNightController : MonoBehaviour
         IsDay = false;
 
         // Stop day music
-        SoundManager.Instance.PlayDayMusic(false);
+        SoundManager.Instance.PlayDayMusic();
 
         // Transition sound
-        SoundManager.Instance.PlayTransition();
+        SoundManager.Instance.PlayTransitionSound();
 
         // Red panel overlay
         nightPanel.SetActive(true);
@@ -41,7 +41,7 @@ public class DayNightController : MonoBehaviour
         // Change player image to werewolf
 
         // Start night music
-        SoundManager.Instance.PlayNightMusic(true);
+        SoundManager.Instance.PlayNightMusic();
 
         // People start fleeing
 
@@ -55,10 +55,10 @@ public class DayNightController : MonoBehaviour
         IsDay = true;
 
         // Stop night music
-        SoundManager.Instance.PlayNightMusic(false);
+        SoundManager.Instance.PlayNightMusic();
 
         // Transition sound
-        SoundManager.Instance.PlayTransition();
+        SoundManager.Instance.PlayTransitionSound();
 
         // Remove red panel overlay
         nightPanel.SetActive(false);
@@ -66,7 +66,7 @@ public class DayNightController : MonoBehaviour
         // Change player image to human
 
         // Start day music
-        SoundManager.Instance.PlayDayMusic(true);
+        SoundManager.Instance.PlayDayMusic();
 
         // People return to shopping
 

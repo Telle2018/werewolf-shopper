@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 8e22400a60b351d4697719ea132616b9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1337135919587698365
+    second: Shopper_sheet_0
+  - first:
+      213: -2313793900027425998
+    second: Shopper_sheet_1
+  - first:
+      213: -8991817543090914341
+    second: Shopper_sheet_2
+  - first:
+      213: -1161471270586962610
+    second: Shopper_sheet_3
+  - first:
+      213: 3084380977140187282
+    second: Shopper_sheet_4
+  - first:
+      213: -4216065631737923961
+    second: Shopper_sheet_5
+  - first:
+      213: -3109188179539747628
+    second: Shopper_sheet_6
+  - first:
+      213: -2274993703291055845
+    second: Shopper_sheet_7
+  - first:
+      213: -380044864563726876
+    second: Shopper_sheet_8
+  - first:
+      213: -1315894046110904205
+    second: Shopper_sheet_9
+  - first:
+      213: 800149498676760468
+    second: Shopper_sheet_10
+  - first:
+      213: -5375895314405666818
+    second: Shopper_sheet_11
+  - first:
+      213: 8462543986474705776
+    second: Shopper_sheet_12
+  - first:
+      213: -4214969024387870602
+    second: Shopper_sheet_13
+  - first:
+      213: -8354628837532921462
+    second: Shopper_sheet_14
+  - first:
+      213: -1721824963012092829
+    second: Shopper_sheet_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Shopper_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 468
+        width: 94
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3495f8037f9817de0800000000000000
+      internalID: -1337135919587698365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shopper_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 468
+        width: 88
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23b4669f4b0c3efd0800000000000000
+      internalID: -2313793900027425998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shopper_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 468
+        width: 94
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdbb0f2d595a63380800000000000000
+      internalID: -8991817543090914341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shopper_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 468
+        width: 88
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4da7db7800a1efe0800000000000000
+      internalID: -1161471270586962610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shopper_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 315
+        width: 94
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 290c96e282cedca20800000000000000
+      internalID: 3084380977140187282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shopper_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 315
+        width: 88
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 786378645a68d75c0800000000000000
+      internalID: -4216065631737923961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shopper_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 315
+        width: 94
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dc90bae2d1f9d4d0800000000000000
+      internalID: -3109188179539747628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shopper_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 315
+        width: 88
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b111611c7499d60e0800000000000000
+      internalID: -2274993703291055845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shopper_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 169
+        width: 81
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e5b7f0953fc9baf0800000000000000
+      internalID: -380044864563726876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shopper_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 169
+        width: 82
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 370128346510dbde0800000000000000
+      internalID: -1315894046110904205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shopper_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 169
+        width: 82
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49fc5dbcab3ba1b00800000000000000
+      internalID: 800149498676760468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shopper_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 169
+        width: 82
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: effc92bb1bbf465b0800000000000000
+      internalID: -5375895314405666818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shopper_sheet_12
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 16
+        width: 81
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07361f15beef07570800000000000000
+      internalID: 8462543986474705776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shopper_sheet_13
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 16
+        width: 82
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6701612110c6185c0800000000000000
+      internalID: -4214969024387870602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shopper_sheet_14
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 16
+        width: 82
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a819d9446556e0c80800000000000000
+      internalID: -8354628837532921462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shopper_sheet_15
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 16
+        width: 82
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36c934a9159da18e0800000000000000
+      internalID: -1721824963012092829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Shopper_sheet_0: -1337135919587698365
+      Shopper_sheet_1: -2313793900027425998
+      Shopper_sheet_10: 800149498676760468
+      Shopper_sheet_11: -5375895314405666818
+      Shopper_sheet_12: 8462543986474705776
+      Shopper_sheet_13: -4214969024387870602
+      Shopper_sheet_14: -8354628837532921462
+      Shopper_sheet_15: -1721824963012092829
+      Shopper_sheet_2: -8991817543090914341
+      Shopper_sheet_3: -1161471270586962610
+      Shopper_sheet_4: 3084380977140187282
+      Shopper_sheet_5: -4216065631737923961
+      Shopper_sheet_6: -3109188179539747628
+      Shopper_sheet_7: -2274993703291055845
+      Shopper_sheet_8: -380044864563726876
+      Shopper_sheet_9: -1315894046110904205
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

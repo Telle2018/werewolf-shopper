@@ -5,13 +5,13 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance { get; private set; }
-
-    [SerializeField] private AudioSource _dayMusic;
-    [SerializeField] private AudioSource _nightMusic;
-    [SerializeField] private AudioSource _transition;
-    [SerializeField] private AudioSource _attack;
-    [SerializeField] private AudioSource _takeDamage;
-    [SerializeField] private AudioSource _foundItem;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _dayMusic;
+    [SerializeField] private AudioClip _nightMusic;
+    [SerializeField] private AudioClip _transitionSound;
+    [SerializeField] private AudioClip _attack;
+    [SerializeField] private AudioClip _takeDamage;
+    [SerializeField] private AudioClip _foundItem;
 
     private void Awake()
     {
@@ -26,43 +26,25 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlayDayMusic(bool play)
+    public void PlayDayMusic()
     {
-        if (play)
-        {
-            //_dayMusic.Play();
-            Debug.Log("Day music starts");
-        }
-        else
-        {
-            //_dayMusic.Stop();
-            Debug.Log("Day music ends");
-        }
+        _audioSource.clip = _dayMusic;
+        _audioSource.Play();
     }
 
-    public void PlayNightMusic(bool play)
+    public void PlayNightMusic()
     {
-        if (play)
-        {
-            //_nightMusic.Play();
-            Debug.Log("Night music starts");
-        }
-        else
-        {
-            //_nightMusic.Stop();
-            Debug.Log("Night music stops");
-        }
-    }
-
-    public void PlayTransition()
-    {
-        //_transition.Play();
-        Debug.Log("Transition sound");
+        _audioSource.clip = _nightMusic;
+        _audioSource.Play();
     }
 
     public void PlayTakeDamange()
     {
-        //_takeDamage.Play();
-        Debug.Log("Take damage");
+        _audioSource.PlayOneShot(_takeDamage);
+    }
+
+    public void PlayTransitionSound()
+    {
+        _audioSource.PlayOneShot(_transitionSound);
     }
 }
