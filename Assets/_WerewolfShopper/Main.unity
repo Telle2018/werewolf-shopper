@@ -396,8 +396,8 @@ MonoBehaviour:
   rb: {fileID: 675104453}
   cam: {fileID: 1628395205}
   spriteRend: {fileID: 1599646183}
-  wolfSpriteObject: {fileID: 1599646181}
-  humanSpriteObject: {fileID: 1929100769}
+  wolfSpriteRend: {fileID: 1599646183}
+  humanSpriteRend: {fileID: 1929100771}
   isHuman: 0
 --- !u!50 &675104453
 Rigidbody2D:

@@ -14,8 +14,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Camera cam;
     [SerializeField] private SpriteRenderer spriteRend;
-    [SerializeField] private GameObject wolfSpriteObject;
-    [SerializeField] private GameObject humanSpriteObject;
+    [SerializeField] private SpriteRenderer wolfSpriteRend;
+    [SerializeField] private SpriteRenderer humanSpriteRend;
     private Vector2 movement;
     private bool isAttacking;
     private float angle;
@@ -51,6 +51,16 @@ public class PlayerController : MonoBehaviour
             Vector2 lookDir = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
             angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle);
+            print("lookdir: " + lookDir.x + " " + lookDir.y);
+            if (lookDir.x < 0)
+            {
+                humanSpriteRend.flipY = true;
+            }
+            else
+            {
+                humanSpriteRend.flipX = false;
+                humanSpriteRend.flipY = false;
+            }
         }
         if (!isHuman && Input.GetMouseButtonDown(0) && (movement.x != 0 || movement.y != 0))
         {
@@ -87,14 +97,14 @@ public class PlayerController : MonoBehaviour
     public void BecomeHuman()
     {
         isHuman = true;
-        wolfSpriteObject.SetActive(false);
-        humanSpriteObject.SetActive(true);
+        wolfSpriteRend.gameObject.SetActive(false);
+        humanSpriteRend.gameObject.SetActive(true);
     }
 
     public void BecomeWolf()
     {
         isHuman = false;
-        wolfSpriteObject.SetActive(true);
-        humanSpriteObject.SetActive(false);
+        wolfSpriteRend.gameObject.SetActive(true);
+        humanSpriteRend.gameObject.SetActive(false);
     }
 }
