@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class PlayerHealth : MonoBehaviour
         if (_health <= 0)
         {
             _isDead = true;
+            SceneManager.LoadScene("MainMenu");
         }
     }
 
