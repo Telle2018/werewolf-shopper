@@ -12,11 +12,11 @@ public class PoliceAI : MonoBehaviour
     [SerializeField] private float delayBeforeShrink = 5;
     [SerializeField] private float shrinkDuration = 1;
     [SerializeField] private SpriteRenderer spriteRend;
-
-    // New fields
     [SerializeField] private GameObject bulletPrefab;          // Reference to the bullet prefab
     [SerializeField] private Transform firePoint;              // The point from where the bullet will be fired
     [SerializeField] private float bulletSpeed = 10f;          // Speed of the bullet
+    [SerializeField] private int pointValueMin;
+    [SerializeField] private int pointValueMax;
 
     private Transform player;               // Reference to the player's transform
     private float lastAttackTime = 0;       // Time of last attack
@@ -69,6 +69,7 @@ public class PoliceAI : MonoBehaviour
         isAlive = false;
         StartCoroutine(Despawn());
         MoneyParticles.Instance.Burst();
+        Score.Instance.PointBurst(Random.Range(pointValueMin, pointValueMax));
     }
 
     IEnumerator Despawn()
