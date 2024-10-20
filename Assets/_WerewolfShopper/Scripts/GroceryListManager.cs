@@ -14,7 +14,7 @@ public class GroceryListManager : MonoBehaviour
     public GameObject groceryTomato;
     public GameObject groceryMacAndCheese;
 
-    private readonly List<GameObject> spawnedGroceryObjects = new List<GameObject>();
+    public List<GameObject> spawnedGroceryObjects = new List<GameObject>();
     private GameObject[] spawnPoints;
     private int minCashReward = 5;
     private int maxCashReward = 15;
@@ -54,6 +54,7 @@ public class GroceryListManager : MonoBehaviour
 
     private void SpawnGroceries()
     {
+        spawnedGroceryObjects.Clear();
         foreach (GameObject spawn in spawnPoints)
         {
             int rng = UnityEngine.Random.Range(0, groceryData.Count);
@@ -119,6 +120,10 @@ public class GroceryListManager : MonoBehaviour
         if (currentQuantity <= 0)
         {
             Destroy(listItem);
+            if (parentObject.transform.childCount <= 1)
+            {
+                SpawnGroceries();
+            }
         }
     }
 }

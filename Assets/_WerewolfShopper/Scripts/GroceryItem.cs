@@ -15,7 +15,7 @@ public class GroceryItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && PlayerController.Instance.isHuman)
         {
             GroceryListManager.Instance.UpdateItemQuantity(gameObject, 1);
             Destroy(gameObject);
