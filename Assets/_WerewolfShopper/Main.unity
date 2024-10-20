@@ -445,6 +445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   attackDuration: 0.2
+  attackBuffer: 0.1
   attackMoveSpeedBonus: 20
   rb: {fileID: 675104453}
   cam: {fileID: 1628395205}
@@ -1110,7 +1111,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 123456
+  m_text: 123456789
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1240,6 +1241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 1358819385}
+  pointBurstRate: 0.07
 --- !u!1001 &1491140891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8668,7 +8670,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 36.700012, y: -33.800003}
+  m_AnchoredPosition: {x: 36.700012, y: -33.80002}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &8977488717417657397

@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float attackDuration = .5f;
+    [SerializeField] private float attackBuffer = .25f; //how much time after attack is player collider still a hurtbox
     [SerializeField] private float attackMoveSpeedBonus = 5f;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Camera cam;
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(attackDuration);
         moveSpeed -= attackMoveSpeedBonus;
         spriteRend.color = Color.white;
+        yield return new WaitForSeconds(attackBuffer);
         isAttacking = false;
     }
 
